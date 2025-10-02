@@ -1,0 +1,1 @@
+#Config Variables (OpenAI API Key, etc.)

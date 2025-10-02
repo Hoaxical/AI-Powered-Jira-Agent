@@ -1,1 +1,3 @@
-# AI-Powered-Jira-Agent
+AI-Powered-Jira-Agent
+
+This is a readme file. (for documentation purpose)
