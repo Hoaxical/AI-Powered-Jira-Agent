@@ -1,1 +1,0 @@
-#Python script to fetch and refine Jira epics
