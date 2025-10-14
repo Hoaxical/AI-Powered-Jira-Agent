@@ -13,10 +13,10 @@ def main():
     # Fetch epics from Jira
     epics = fetch_jiraAPI()
 
-    # Print only the first epic nicely formatted
+    # Print only the first epic nicely formatted (debug testing)
     print(json.dumps(epics[1], indent=1))
 
-    # Send to AI
+    # pass the first epic to Gemini API
     print("\nPrompting AI... Generating...\n")
     prompt = generate_stories_and_tests(epics[1]["name"], epics[1]["description"])
     jsonresponse = call_gemini_and_parse(prompt)
