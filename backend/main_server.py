@@ -27,8 +27,6 @@ def main():
 
 main()
 
-
-
 '''for i in range(len(epics)):
         prompt = generate_stories_and_tests(epics[i]["name"], epics[i]["description"])
         call_gemini_and_parse(prompt)'''
