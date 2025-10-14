@@ -14,7 +14,7 @@ def main():
     epics = fetch_jiraAPI()
 
     # Print only the first epic nicely formatted
-    print(json.dumps(epics[1], indent=2))
+    print(json.dumps(epics[1], indent=1))
 
     # Send to AI
     print("\nPrompting AI... Generating...\n")
