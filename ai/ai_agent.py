@@ -36,39 +36,39 @@ def call_gemini_and_parse(prompt):
 
 def generate_stories_and_tests(epic_title, epic_description, n_stories=4):
     prompt = f"""
-You are an expert Agile Product Owner and QA Engineer.
-Convert the following EPIC into {n_stories} user stories and for each story generate 2-3 test cases.
+  You are an expert Agile Product Owner and QA Engineer.
+  Convert the following EPIC into {n_stories} user stories and for each story generate 2-3 test cases.
 
-Return output as **strict JSON** in the format:
-{{
-  "epic_title": "",
-  "epic_description": "",
-  "user_stories": [
-    {{
-      "id": "US-1",
-      "title": "",
-      "description": "",
-      "acceptance_criteria": [
-        "Given ... When ... Then ..."
-      ],
-      "story_points": 3 (for example)
-    }}
-  ],
-  "test_cases": [
-    {{
-      "testcase_id": "TC-US-1-01",
-      "story_id": "US-1",
-      "preconditions": "",
-      "steps": ["", ""],
-      "expected_results": ""
-    }}
-  ]
-}}
+  Return output as **strict JSON** in the format:
+  {{
+    "epic_title": "",
+    "epic_description": "",
+    "user_stories": [
+      {{
+        "id": "US-1",
+        "title": "",
+        "description": "",
+        "acceptance_criteria": [
+          "Given ... When ... Then ..."
+        ],
+        "story_points": 3 (for example)
+      }}
+    ],
+    "test_cases": [
+      {{
+        "testcase_id": "TC-US-1-01",
+        "story_id": "US-1",
+        "preconditions": "",
+        "steps": ["", ""],
+        "expected_results": ""
+      }}
+    ]
+  }}
 
-EPIC TITLE:
-{epic_title}
+  EPIC TITLE:
+  {epic_title}
 
-EPIC DESCRIPTION:
-{epic_description}
-"""
+  EPIC DESCRIPTION:
+  {epic_description}
+  """
     return prompt

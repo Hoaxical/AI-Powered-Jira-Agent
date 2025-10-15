@@ -1,0 +1,141 @@
+{
+  "epic_title": "User Authentication",
+  "epic_description": "Implement secure login, signup, and password reset. Includes email verification and two-factor authentication for account security.",
+  "user_stories": [
+    {
+      "id": "US-1",
+      "title": "User Registration",
+      "description": "As a new user, I want to be able to create an account with a valid email address and password so that I can access the application.",
+      "acceptance_criteria": [
+        "Given I am on the registration page, When I enter a valid email address, a strong password, and confirm the password, and click 'Register', Then I should receive a confirmation email.",
+        "Given I am on the registration page, When I enter an invalid email address, a weak password, or mismatched passwords, and click 'Register', Then I should see appropriate error messages.",
+        "Given I have successfully registered, When I try to register again with the same email address, Then I should see an error message indicating that the email address is already in use."
+      ],
+      "story_points": 5
+    },
+    {
+      "id": "US-2",
+      "title": "User Login",
+      "description": "As a registered user, I want to be able to log in to the application using my email address and password so that I can access my account.",
+      "acceptance_criteria": [
+        "Given I am on the login page, When I enter my registered email address and password, and click 'Login', Then I should be redirected to my account dashboard.",
+        "Given I am on the login page, When I enter an incorrect email address or password, and click 'Login', Then I should see an error message indicating invalid credentials.",
+        "Given I am on the login page, When I enter my email address and password, and click 'Remember Me', Then my login information should be saved for future sessions."
+      ],
+      "story_points": 3
+    },
+    {
+      "id": "US-3",
+      "title": "Password Reset",
+      "description": "As a user, I want to be able to reset my password if I forget it so that I can regain access to my account.",
+      "acceptance_criteria": [
+        "Given I am on the login page, When I click on 'Forgot Password', and enter my registered email address, and click 'Submit', Then I should receive an email with a password reset link.",
+        "Given I click on the password reset link in the email, When I enter a new password and confirm it, and click 'Reset Password', Then my password should be updated, and I should be redirected to the login page.",
+        "Given I request multiple password reset emails, When I attempt to use an old reset link, Then the link should be invalid, and I should be prompted to request a new one."
+      ],
+      "story_points": 5
+    },
+    {
+      "id": "US-4",
+      "title": "Two-Factor Authentication (2FA)",
+      "description": "As a user, I want to be able to enable two-factor authentication on my account so that I can add an extra layer of security.",
+      "acceptance_criteria": [
+        "Given I am logged in to my account, When I navigate to the security settings and enable 2FA, Then I should be prompted to scan a QR code or enter a setup key into an authenticator app.",
+        "Given I have 2FA enabled, When I log in, Then I should be prompted to enter a verification code from my authenticator app.",
+        "Given I have 2FA enabled, When I enter an incorrect verification code, Then I should see an error message and be prompted to try again."
+      ],
+      "story_points": 8
+    }
+  ],
+  "test_cases": [
+    {
+      "testcase_id": "TC-US-1-01",
+      "story_id": "US-1",
+      "preconditions": "User is on the registration page.",
+      "steps": [
+        "Enter a valid email address.",
+        "Enter a strong password.",
+        "Confirm the password.",
+        "Click 'Register'."
+      ],
+      "expected_results": "User receives a confirmation email."
+    },
+    {
+      "testcase_id": "TC-US-1-02",
+      "story_id": "US-1",
+      "preconditions": "User is on the registration page.",
+      "steps": [
+        "Enter an invalid email address.",
+        "Enter a password.",
+        "Confirm the password.",
+        "Click 'Register'."
+      ],
+      "expected_results": "User sees an error message indicating the email is invalid."
+    },
+    {
+      "testcase_id": "TC-US-2-01",
+      "story_id": "US-2",
+      "preconditions": "User is on the login page.",
+      "steps": [
+        "Enter a registered email address.",
+        "Enter the correct password.",
+        "Click 'Login'."
+      ],
+      "expected_results": "User is redirected to their account dashboard."
+    },
+    {
+      "testcase_id": "TC-US-2-02",
+      "story_id": "US-2",
+      "preconditions": "User is on the login page.",
+      "steps": [
+        "Enter a registered email address.",
+        "Enter an incorrect password.",
+        "Click 'Login'."
+      ],
+      "expected_results": "User sees an error message indicating invalid credentials."
+    },
+    {
+      "testcase_id": "TC-US-3-01",
+      "story_id": "US-3",
+      "preconditions": "User is on the login page.",
+      "steps": [
+        "Click 'Forgot Password'.",
+        "Enter a registered email address.",
+        "Click 'Submit'."
+      ],
+      "expected_results": "User receives an email with a password reset link."
+    },
+    {
+      "testcase_id": "TC-US-3-02",
+      "story_id": "US-3",
+      "preconditions": "User has received a password reset email.",
+      "steps": [
+        "Click on the password reset link.",
+        "Enter a new password.",
+        "Confirm the password.",
+        "Click 'Reset Password'."
+      ],
+      "expected_results": "User's password is updated, and user is redirected to the login page."
+    },
+    {
+      "testcase_id": "TC-US-4-01",
+      "story_id": "US-4",
+      "preconditions": "User is logged in to their account.",
+      "steps": [
+        "Navigate to the security settings.",
+        "Enable 2FA."
+      ],
+      "expected_results": "User is prompted to scan a QR code or enter a setup key into an authenticator app."
+    },
+    {
+      "testcase_id": "TC-US-4-02",
+      "story_id": "US-4",
+      "preconditions": "User has 2FA enabled and is on the login page.",
+      "steps": [
+        "Enter email and password.",
+        "Enter verification code from authenticator app."
+      ],
+      "expected_results": "User is logged in successfully and redirected to the account dashboard."
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "1": {
+    "id": 10036,
+    "key": "DIN-1",
+    "name": "User Authentication",
+    "description": "Implement secure login, signup, and password reset. Includes email verification and two-factor authentication for account security."
+  },
+  "2": {
+    "id": 10037,
+    "key": "DIN-2",
+    "name": "Menu Management",
+    "description": "Allow restaurant admin to create, update, and delete menu items, organize them into categories, and manage pricing."
+  },
+  "3": {
+    "id": 10038,
+    "key": "DIN-3",
+    "name": "Online Ordering",
+    "description": "Enable customers to select items from the menu, add to cart, and place orders online with an order confirmation system."
+  },
+  "4": {
+    "id": 10039,
+    "key": "DIN-4",
+    "name": "Payment Integration",
+    "description": "Integrate multiple payment methods including credit cards, mobile wallets, and digital banking."
+  },
+  "5": {
+    "id": 10040,
+    "key": "DIN-5",
+    "name": "Table Reservation System",
+    "description": "Allow customers to book tables online with real-time availability updates and confirmation notifications."
+  },
+  "6": {
+    "id": 10041,
+    "key": "DIN-6",
+    "name": "Order Tracking",
+    "description": "Let customers track order status in real-time, from preparation to delivery or table service."
+  },
+  "7": {
+    "id": 10042,
+    "key": "DIN-7",
+    "name": "Customer Reviews & Ratings",
+    "description": "Allow customers to submit reviews and ratings for dishes and the restaurant overall, with moderation tools for admins."
+  },
+  "8": {
+    "id": 10043,
+    "key": "DIN-8",
+    "name": "Promotions and Discounts",
+    "description": "Implement coupon codes, special offers, and loyalty programs for customers."
+  },
+  "9": {
+    "id": 10044,
+    "key": "DIN-9",
+    "name": "Admin Dashboard",
+    "description": "Provide restaurant admins a dashboard to manage orders, track performance, and access analytics"
+  },
+  "10": {
+    "id": 10045,
+    "key": "DIN-10",
+    "name": "Notifications and Alerts",
+    "description": "Send customers email, SMS, or app push notifications for order updates, offers, and reservation confirmations."
+  },
+  "11": {
+    "id": 10046,
+    "key": "DIN-11",
+    "name": "Mobile Responsiveness",
+    "description": "Ensure website design works smoothly on desktop, tablet, and mobile devices."
+  },
+  "12": {
+    "id": 10047,
+    "key": "DIN-12",
+    "name": "Multi-language Support",
+    "description": "Allow users to switch between languages to accommodate international customers."
+  },
+  "13": {
+    "id": 10048,
+    "key": "DIN-13",
+    "name": "Customer Support Chatbot",
+    "description": "Add an AI-powered chatbot for answering customer queries, assisting with orders, and providing recommendations."
+  },
+  "14": {
+    "id": 10049,
+    "key": "DIN-14",
+    "name": "Inventory Management",
+    "description": "Enable admins to monitor ingredient stock levels, automatically update menu availability, and notify when restocking is needed."
+  },
+  "15": {
+    "id": 10050,
+    "key": "DIN-15",
+    "name": "Analytics and Reporting",
+    "description": "Provide detailed analytics on orders, revenue, customer activity, and reviews for informed decision-making."
+  }
+}
