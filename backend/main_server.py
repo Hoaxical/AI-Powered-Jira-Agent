@@ -1,32 +1,37 @@
 import sys
 import os
 import json
+from flask import Flask, jsonify
+from flask_cors import CORS
 from fetch_api import fetch_jiraAPI
 
-# Add parent directory (project_root) to Python path BEFORE importing from ai
+# Add parent directory for ai imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 from ai.ai_agent import generate_stories_and_tests, call_gemini_and_parse
 
+app = Flask(__name__)
+CORS(app)  # Allow JS frontend to fetch
 
-def main():
-    # Fetch epics from Jira
+# Endpoint to fetch epics
+@app.route("/refresh-epics", methods=["GET"])
+def refresh_epics():
     epics = fetch_jiraAPI()
+    if not epics:
+        return jsonify({"error": "No epics found"}), 404
+    return jsonify(epics)
 
-    # Print only the first epic nicely formatted (debug testing)
-    print(json.dumps(epics[1], indent=1))
+# Optional: Endpoint to generate AI stories for a specific epic
+@app.route("/generate-ai/<int:epic_index>", methods=["GET"])
+def generate_ai(epic_index):
+    epics = fetch_jiraAPI()
+    if epic_index not in epics:
+        return jsonify({"error": f"Epic {epic_index} not found"}), 404
+    epic = epics[epic_index]
 
-    # pass the first epic to Gemini API
-    print("\nPrompting AI... Generating...\n")
-    prompt = generate_stories_and_tests(epics[1]["name"], epics[1]["description"])
-    jsonresponse = call_gemini_and_parse(prompt)
-
-    print(json.dumps(jsonresponse, indent=2))
+    prompt = generate_stories_and_tests(epic["name"], epic["description"])
+    ai_response = call_gemini_and_parse(prompt)
+    return jsonify(ai_response)
 
 
-
-main()
-
-'''for i in range(len(epics)):
-        prompt = generate_stories_and_tests(epics[i]["name"], epics[i]["description"])
-        call_gemini_and_parse(prompt)'''
+if __name__ == "__main__":
+    app.run(debug=True)
