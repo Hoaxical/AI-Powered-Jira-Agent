@@ -1,0 +1,132 @@
+{
+  "epic_title": "Analytics and Reporting",
+  "epic_description": "Provide detailed analytics on orders, revenue, customer activity, and reviews for informed decision-making.",
+  "user_stories": [
+    {
+      "id": "US-1",
+      "title": "Order Analytics Dashboard",
+      "description": "As a business owner, I want a dashboard displaying key order metrics (total orders, average order value, order fulfillment rate) so I can quickly assess overall order performance.",
+      "acceptance_criteria": [
+        "Given I am logged in as an administrator, When I navigate to the analytics dashboard, Then I should see a panel displaying total orders for the selected period.",
+        "Given I am logged in as an administrator, When I navigate to the analytics dashboard, Then I should see a panel displaying the average order value for the selected period.",
+        "Given I am logged in as an administrator, When I navigate to the analytics dashboard, Then I should see a panel displaying the order fulfillment rate (percentage of orders shipped within the defined SLA) for the selected period."
+      ],
+      "story_points": 5
+    },
+    {
+      "id": "US-2",
+      "title": "Revenue Analytics Report",
+      "description": "As a finance manager, I want a report showing revenue trends (total revenue, revenue by product category, revenue by region) so I can understand revenue performance and identify growth opportunities.",
+      "acceptance_criteria": [
+        "Given I am logged in as a finance manager, When I generate a revenue report for the last quarter, Then I should see the total revenue generated during that quarter.",
+        "Given I am logged in as a finance manager, When I generate a revenue report, Then I should be able to filter the report by product category and see revenue breakdowns for each category.",
+        "Given I am logged in as a finance manager, When I generate a revenue report, Then I should be able to filter the report by region and see revenue breakdowns for each region."
+      ],
+      "story_points": 8
+    },
+    {
+      "id": "US-3",
+      "title": "Customer Activity Report",
+      "description": "As a marketing manager, I want a report tracking customer activity (new customers, active customers, customer churn rate) so I can measure the effectiveness of marketing campaigns and identify areas for customer retention efforts.",
+      "acceptance_criteria": [
+        "Given I am logged in as a marketing manager, When I generate a customer activity report for the last month, Then I should see the number of new customers acquired during that month.",
+        "Given I am logged in as a marketing manager, When I generate a customer activity report, Then I should see the number of active customers (defined as customers who made a purchase or logged in) during the selected period.",
+        "Given I am logged in as a marketing manager, When I generate a customer activity report, Then I should see the customer churn rate (percentage of customers who stopped using the service) during the selected period."
+      ],
+      "story_points": 5
+    },
+    {
+      "id": "US-4",
+      "title": "Review and Rating Analytics",
+      "description": "As a product manager, I want to see aggregated customer reviews and ratings for products so I can understand customer sentiment and identify product improvements.",
+      "acceptance_criteria": [
+        "Given I am logged in as a product manager, When I navigate to a product details page, Then I should see the average customer rating for that product.",
+        "Given I am logged in as a product manager, When I navigate to a product details page, Then I should see a summary of customer reviews, including positive and negative feedback.",
+        "Given I am logged in as a product manager, When I navigate to the review section, I should be able to filter reviews by rating (e.g., show only 5-star reviews)."
+      ],
+      "story_points": 3
+    }
+  ],
+  "test_cases": [
+    {
+      "testcase_id": "TC-US-1-01",
+      "story_id": "US-1",
+      "preconditions": "User is logged in as an administrator.",
+      "steps": [
+        "Navigate to the Analytics Dashboard.",
+        "Select a date range (e.g., last 7 days)."
+      ],
+      "expected_results": "The total orders panel should display the correct total number of orders placed within the selected date range."
+    },
+    {
+      "testcase_id": "TC-US-1-02",
+      "story_id": "US-1",
+      "preconditions": "User is logged in as an administrator.",
+      "steps": [
+        "Navigate to the Analytics Dashboard.",
+        "Select a date range (e.g., last month)."
+      ],
+      "expected_results": "The average order value panel should display the correct average value of orders placed within the selected date range."
+    },
+    {
+      "testcase_id": "TC-US-2-01",
+      "story_id": "US-2",
+      "preconditions": "User is logged in as a finance manager.",
+      "steps": [
+        "Navigate to the Revenue Report.",
+        "Select a date range (e.g., last quarter)."
+      ],
+      "expected_results": "The report should display the total revenue generated during the selected quarter."
+    },
+    {
+      "testcase_id": "TC-US-2-02",
+      "story_id": "US-2",
+      "preconditions": "User is logged in as a finance manager.",
+      "steps": [
+        "Navigate to the Revenue Report.",
+        "Select a date range (e.g., last year).",
+        "Filter by a specific product category (e.g., 'Electronics')."
+      ],
+      "expected_results": "The report should display the total revenue generated by the 'Electronics' product category during the selected year."
+    },
+    {
+      "testcase_id": "TC-US-3-01",
+      "story_id": "US-3",
+      "preconditions": "User is logged in as a marketing manager.",
+      "steps": [
+        "Navigate to the Customer Activity Report.",
+        "Select a date range (e.g., last 30 days)."
+      ],
+      "expected_results": "The report should display the correct number of new customers acquired within the last 30 days."
+    },
+    {
+      "testcase_id": "TC-US-3-02",
+      "story_id": "US-3",
+      "preconditions": "User is logged in as a marketing manager.",
+      "steps": [
+        "Navigate to the Customer Activity Report.",
+        "Select a date range (e.g., last quarter)."
+      ],
+      "expected_results": "The report should display the number of active customers within the selected quarter based on the criteria for active user activity (e.g. Logged in, or placed an order)."
+    },
+    {
+      "testcase_id": "TC-US-4-01",
+      "story_id": "US-4",
+      "preconditions": "User is logged in as a product manager.",
+      "steps": [
+        "Navigate to the details page for a specific product (e.g., 'Product A')."
+      ],
+      "expected_results": "The average customer rating for 'Product A' should be displayed correctly."
+    },
+    {
+      "testcase_id": "TC-US-4-02",
+      "story_id": "US-4",
+      "preconditions": "User is logged in as a product manager.",
+      "steps": [
+        "Navigate to the details page for a specific product (e.g., 'Product B').",
+        "Scroll to the reviews section."
+      ],
+      "expected_results": "A summary of customer reviews should be displayed, including an indicator for number of positive (4 and 5-star) and negative (1 and 2-star) reviews."
+    }
+  ]
+}
