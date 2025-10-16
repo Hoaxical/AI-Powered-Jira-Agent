@@ -15,7 +15,7 @@ from convertairesponse import convert_ai_response_to_text
  
 app = Flask(__name__) #initialize Flask app
 CORS(app)  #allow JS frontend to fetch
-
+ 
 #this is the endpoint for the function to fetch all epics LIVE.. YES, LIVE from Jira API
 @app.route("/refresh-epics", methods=["GET"])
 def refresh_epics():

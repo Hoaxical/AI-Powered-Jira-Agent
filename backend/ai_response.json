@@ -1,48 +1,50 @@
 {
-  "epic_title": "Analytics and Reporting",
-  "epic_description": "Provide detailed analytics on orders, revenue, customer activity, and reviews for informed decision-making.",
+  "epic_title": "Online Ordering",
+  "epic_description": "Enable customers to select items from the menu, add to cart, and place orders online with an order confirmation system.",
   "user_stories": [
     {
       "id": "US-1",
-      "title": "Order Analytics Dashboard",
-      "description": "As a business owner, I want a dashboard displaying key order metrics (total orders, average order value, order fulfillment rate) so I can quickly assess overall order performance.",
+      "title": "View Menu and Item Details",
+      "description": "As a customer, I want to be able to browse the menu and view details for each item so I can make informed decisions about my order.",
       "acceptance_criteria": [
-        "Given I am logged in as an administrator, When I navigate to the analytics dashboard, Then I should see a panel displaying total orders for the selected period.",
-        "Given I am logged in as an administrator, When I navigate to the analytics dashboard, Then I should see a panel displaying the average order value for the selected period.",
-        "Given I am logged in as an administrator, When I navigate to the analytics dashboard, Then I should see a panel displaying the order fulfillment rate (percentage of orders shipped within the defined SLA) for the selected period."
+        "Given I am on the homepage, When I navigate to the menu, Then I should see a list of available items categorized appropriately.",
+        "Given I am viewing the menu, When I click on an item, Then I should see detailed information about the item, including name, description, price, and available customizations (e.g., size, toppings).",
+        "Given I am viewing the menu, Then menu items are displayed with clear images (where available) and concise descriptions."
       ],
       "story_points": 5
     },
     {
       "id": "US-2",
-      "title": "Revenue Analytics Report",
-      "description": "As a finance manager, I want a report showing revenue trends (total revenue, revenue by product category, revenue by region) so I can understand revenue performance and identify growth opportunities.",
+      "title": "Add Items to Cart",
+      "description": "As a customer, I want to be able to add items to my cart so I can collect all desired items before placing my order.",
       "acceptance_criteria": [
-        "Given I am logged in as a finance manager, When I generate a revenue report for the last quarter, Then I should see the total revenue generated during that quarter.",
-        "Given I am logged in as a finance manager, When I generate a revenue report, Then I should be able to filter the report by product category and see revenue breakdowns for each category.",
-        "Given I am logged in as a finance manager, When I generate a revenue report, Then I should be able to filter the report by region and see revenue breakdowns for each region."
-      ],
-      "story_points": 8
-    },
-    {
-      "id": "US-3",
-      "title": "Customer Activity Report",
-      "description": "As a marketing manager, I want a report tracking customer activity (new customers, active customers, customer churn rate) so I can measure the effectiveness of marketing campaigns and identify areas for customer retention efforts.",
-      "acceptance_criteria": [
-        "Given I am logged in as a marketing manager, When I generate a customer activity report for the last month, Then I should see the number of new customers acquired during that month.",
-        "Given I am logged in as a marketing manager, When I generate a customer activity report, Then I should see the number of active customers (defined as customers who made a purchase or logged in) during the selected period.",
-        "Given I am logged in as a marketing manager, When I generate a customer activity report, Then I should see the customer churn rate (percentage of customers who stopped using the service) during the selected period."
+        "Given I am viewing an item's details, When I click the 'Add to Cart' button, Then the item should be added to my cart with the selected quantity.",
+        "Given I have items in my cart, When I view the cart, Then I should see a list of the items I've added, their quantities, and the subtotal.",
+        "Given I have items in my cart, When I change the quantity of an item, Then the cart subtotal should update automatically.",
+        "Given I have items in my cart, When I remove an item from my cart, Then the item should be removed, and the cart subtotal should update automatically."
       ],
       "story_points": 5
     },
     {
-      "id": "US-4",
-      "title": "Review and Rating Analytics",
-      "description": "As a product manager, I want to see aggregated customer reviews and ratings for products so I can understand customer sentiment and identify product improvements.",
+      "id": "US-3",
+      "title": "Checkout and Order Placement",
+      "description": "As a customer, I want to be able to proceed to checkout, provide my contact and payment information, and place my order.",
       "acceptance_criteria": [
-        "Given I am logged in as a product manager, When I navigate to a product details page, Then I should see the average customer rating for that product.",
-        "Given I am logged in as a product manager, When I navigate to a product details page, Then I should see a summary of customer reviews, including positive and negative feedback.",
-        "Given I am logged in as a product manager, When I navigate to the review section, I should be able to filter reviews by rating (e.g., show only 5-star reviews)."
+        "Given I have items in my cart, When I click the 'Checkout' button, Then I should be directed to the checkout page.",
+        "Given I am on the checkout page, Then I should be able to enter my contact information (name, email, phone number).",
+        "Given I am on the checkout page, Then I should be able to select a payment method (e.g., credit card, PayPal).",
+        "Given I have provided all required information, When I click the 'Place Order' button, Then my order should be submitted successfully."
+      ],
+      "story_points": 8
+    },
+    {
+      "id": "US-4",
+      "title": "Order Confirmation and Tracking",
+      "description": "As a customer, I want to receive an order confirmation after placing my order so I know it has been received and is being processed.",
+      "acceptance_criteria": [
+        "Given I have placed an order, Then I should receive an order confirmation email or on-screen message with my order details and estimated delivery/pickup time.",
+        "Given I have placed an order, Then I should be able to track the status of my order online.",
+        "Given I have placed an order, The confirmation displays the order number, date, time, items ordered, total amount and delivery address(if applicable)"
       ],
       "story_points": 3
     }
@@ -51,82 +53,82 @@
     {
       "testcase_id": "TC-US-1-01",
       "story_id": "US-1",
-      "preconditions": "User is logged in as an administrator.",
+      "preconditions": "User is on the homepage.",
       "steps": [
-        "Navigate to the Analytics Dashboard.",
-        "Select a date range (e.g., last 7 days)."
+        "Navigate to the 'Menu' section.",
+        "Verify that the menu items are displayed."
       ],
-      "expected_results": "The total orders panel should display the correct total number of orders placed within the selected date range."
+      "expected_results": "A list of available menu items, categorized appropriately, is displayed."
     },
     {
       "testcase_id": "TC-US-1-02",
       "story_id": "US-1",
-      "preconditions": "User is logged in as an administrator.",
+      "preconditions": "User is viewing the menu.",
       "steps": [
-        "Navigate to the Analytics Dashboard.",
-        "Select a date range (e.g., last month)."
+        "Click on a specific menu item.",
+        "Verify that the item details are displayed."
       ],
-      "expected_results": "The average order value panel should display the correct average value of orders placed within the selected date range."
+      "expected_results": "The selected item's details, including name, description, price, and available customizations, are displayed."
     },
     {
       "testcase_id": "TC-US-2-01",
       "story_id": "US-2",
-      "preconditions": "User is logged in as a finance manager.",
+      "preconditions": "User is viewing an item's details.",
       "steps": [
-        "Navigate to the Revenue Report.",
-        "Select a date range (e.g., last quarter)."
+        "Click the 'Add to Cart' button.",
+        "Navigate to the cart."
       ],
-      "expected_results": "The report should display the total revenue generated during the selected quarter."
+      "expected_results": "The selected item is added to the cart with the default quantity. The cart displays the item and current subtotal."
     },
     {
       "testcase_id": "TC-US-2-02",
       "story_id": "US-2",
-      "preconditions": "User is logged in as a finance manager.",
+      "preconditions": "User has items in the cart.",
       "steps": [
-        "Navigate to the Revenue Report.",
-        "Select a date range (e.g., last year).",
-        "Filter by a specific product category (e.g., 'Electronics')."
+        "Change the quantity of an item in the cart.",
+        "Verify that the cart subtotal is updated."
       ],
-      "expected_results": "The report should display the total revenue generated by the 'Electronics' product category during the selected year."
+      "expected_results": "The cart subtotal is automatically updated to reflect the changes in item quantity."
     },
     {
       "testcase_id": "TC-US-3-01",
       "story_id": "US-3",
-      "preconditions": "User is logged in as a marketing manager.",
+      "preconditions": "User has items in the cart.",
       "steps": [
-        "Navigate to the Customer Activity Report.",
-        "Select a date range (e.g., last 30 days)."
+        "Click the 'Checkout' button.",
+        "Verify the checkout page is displayed"
       ],
-      "expected_results": "The report should display the correct number of new customers acquired within the last 30 days."
+      "expected_results": "User is redirected to the checkout page. The checkout page displays the order items and total amount."
     },
     {
       "testcase_id": "TC-US-3-02",
       "story_id": "US-3",
-      "preconditions": "User is logged in as a marketing manager.",
+      "preconditions": "User is on the checkout page and has filled out all the required information",
       "steps": [
-        "Navigate to the Customer Activity Report.",
-        "Select a date range (e.g., last quarter)."
+        "Select a payment method",
+        "Click the 'Place Order' button."
       ],
-      "expected_results": "The report should display the number of active customers within the selected quarter based on the criteria for active user activity (e.g. Logged in, or placed an order)."
+      "expected_results": "The order should be placed successfully without any errors."
     },
     {
       "testcase_id": "TC-US-4-01",
       "story_id": "US-4",
-      "preconditions": "User is logged in as a product manager.",
+      "preconditions": "User has successfully placed an order.",
       "steps": [
-        "Navigate to the details page for a specific product (e.g., 'Product A')."
+        "Check for an order confirmation email.",
+        "Navigate to the order tracking section (if available)."
       ],
-      "expected_results": "The average customer rating for 'Product A' should be displayed correctly."
+      "expected_results": "User receives an order confirmation email with order details and estimated delivery/pickup time. User can track the status of the order online."
     },
     {
       "testcase_id": "TC-US-4-02",
       "story_id": "US-4",
-      "preconditions": "User is logged in as a product manager.",
+      "preconditions": "User has successfully placed an order.",
       "steps": [
-        "Navigate to the details page for a specific product (e.g., 'Product B').",
-        "Scroll to the reviews section."
+        "Verify on-screen message after placing order",
+        "Confirm order details are shown."
       ],
-      "expected_results": "A summary of customer reviews should be displayed, including an indicator for number of positive (4 and 5-star) and negative (1 and 2-star) reviews."
+      "expected_results": "An on-screen confirmation message displays the order number, date, time, items ordered, total amount and delivery address(if applicable)."
     }
   ]
 }

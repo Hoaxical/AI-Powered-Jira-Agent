@@ -82,5 +82,5 @@ document.addEventListener("DOMContentLoaded", () => { // Ensure DOM is loaded
   generateBtn.addEventListener("click", generateAI);
 
   //loads epics automatically on page load
-  loadEpics();
+  //loadEpics();
 });
